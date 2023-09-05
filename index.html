@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Put your own description here</title>
+    <title>Guitar Group Planning</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -15,7 +15,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <div class="container-fluid header p-3">
-    <h1>Site name</h1>
+    <h1>Guitar Group</h1>
 </div>
 <nav class="navbar navbar-expand-lg px-3 py-2 mb-2">
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -41,30 +41,356 @@
 
 <div class="container-lg">
 
-    <h2>Brief</h2>
+    <h2>Describing Relevant Implications</h2>
+    <h5>- Privacy</h5>
+        <p>
+            Securing the database is crucial to protect user information from unauthorized access, data breaches, or cyberattacks. Implementing strong encryption and access controls is essential. The database that collects information from users is restricted from them and does not take them to the data folder. Access to the database should be restricted to authorized personnel only. User rights must be respected, including the right to access, edit, or delete their data. Users should have the means to exercise these rights easily. User data is often collected; such as personal information and browsing history, which is stored in databases. The implications for privacy arise from how this data is collected, stored, and protected. Users should be informed about data collection and give consent where necessary. Passwords should be hashed; it may be necessary to anonymize or pseudonymize user data in the database to protect individual identities. Only necessary data for the website's intended purpose must be collected. Minimizing data collection reduces the potential impact on user privacy.
+        </p>
+    <h5>- Functionality</h5>
+        <p>
+            The functionality of the website must align with the client's requirements and expectations. This involves clear communication and documentation of the client's needs throughout the development process. To ensure usefulness, the website's design and features should be tailored to meet the needs and preferences of its intended users. User experience (UX) testing and feedback can help refine functionality. Comprehensive testing, including functionality testing, is crucial to ensure that the website performs as intended. This involves checking that all features work correctly, data is accurately retrieved from and stored in the database, and user interactions are smooth. Beyond functionality, usability testing assesses how easily users can navigate and interact with the website. It helps identify any user experience issues and can lead to improvements in functionality and user-friendliness. The website's functionality should be designed to scale with user demand. As the user base grows, the database and infrastructure should be able to handle increased traffic without performance issues. A slow website can undermine its usefulness. Optimizing code, database queries, and server performance is crucial to maintaining fast loading times and responsive functionality.
+        </p>
+    <h5>- Sustainability and Future Proofing</h5>
+        <p>
+            The database must be designed with a focus on normalization, ensuring that data is organized efficiently into separate tables for different entities, such as people, schedule items, news items, and comments. This normalization facilitates easier maintenance and expansion. The use of foreign keys to reference shared data like names or other details, and ensuring that corrections or updates need to be made in one place only. Adopting a modular approach to database design, with distinct tables for various entities makes it simpler to add new tables or features without the need to alter existing structures, enhancing future-proofing. Maintenance of comprehensive documentation detailing the database schema, relationships, and the purpose of each table is crucial. This documentation aids in database maintenance and makes it easier for future developers to understand and work with the database. (This can be found on this planning website below.) Version control for the database must be implemented, allowing trackage of changes and revertion to previous versions if necessary. This helps maintain consistency and manage updates over time.
+        </p>
+    <h5>- End user consideration </h5>
+        <p>
+            Data retrieved from the database needs to be presented in a user-friendly and organized manner. User interfaces should prioritize clarity and ease of navigation, catering to users' needs for efficient access to information. The design of the website must be responsive so it adapts to various devices and screen sizes. This is essential for providing a seamless user experience, as modern users expect websites to work well on both desktop and mobile devices. Due to modern users’ expectations, data needs to be formatted in a way that aligns with it. Consistent styling, such as fonts, colours, and layout, helps maintain a professional and user-friendly appearance. Forms for adding, updating, or deleting entries in the database must be intuitive and user-friendly. Form validation to help users avoid input errors may be considered. A mechanism for users to undo their actions, especially when updating or deleting data should be provided. This helps prevent accidental data loss and enhances the user experience. Users expect fast response times, and efficient queries contribute to a smoother user experience Optimisation of database queries ensures quick retrieval of data. Clear error messages and notifications to guide users when they encounter issues, such as failed form submissions or data retrieval errors must be implemented. Effective error handling contributes to a frustration-free experience.
+        </p>
+
         <hr>
-    <h2>Boards and sprints</h2>
-        <hr>
+    <h2> Starting Design: </h2>
+    <p>This is my starting design for a database for the guitar group website.
+The news page holds key information for upcoming events and activities that are open for all to attend. Only some users (super users) are able to edit the news page by creating, updating, and deleting it. Others are only able to view this page. This is the first thing to prioritise but I am looking into adding a schedule page where specfic users can add/ update events and a comment section so users are able to discuss if they are attending said events.
+    </p>
+
+
+    <p>Initial Database Design</p>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/whiteboard.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/datadescription.jpg">
+    </div>
+    </div>
+
+    <hr>
+
         <!-- Heading levels -->
-            <h3>Sprint One</h3>
-            <p>Plan</p>
-            <p>Boards</p>
-            <p>Link to the Canvas Page</p>
-            <p>Test</p>
-            <p>Reflect</p>
-        <hr>
-            <h3>Sprint Two</h3>
-            <p>Plan</p>
-            <p>Boards</p>
-            <p>Link to the Canvas Page</p>
-            <p>Test</p>
-            <p>Reflect</p>
-        <hr>
+            <h3>Sprint #1</h3>
+    <h4> Aim: Create, update, and delete news items.</h4>
+    <br>
+
+    <img class="img-fluid part-img" style="border:5px solid #000" src="assets/images/sprint_1start.jpg">
+
+    <br>
+    <p> In the first iteration, I have created 2 tables - <b> member table and news table. </b> I have linked both tables together as shown below. </p>
+
+    <p> Member table - will hold the information of all the members who have signed up to the guitar group website.
+    <br> Member can have an authorisation code of 0 or 1.
+    <br> 0 - Member can create, update, and delete (CRUD)
+    <br> 1 - Member can view the news </p>
+
+    <p> News table - will store the news items created by the authorised members. <p>
+    <p> There is one to many relationships between member and news. Meaning a member is able to create multiple news items. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/connectingmembersandnews.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/tables_closeup.jpg">
+    </div>
+    </div>
+
+    <br>
+    <p> Create_db.sql - SQL installer <br> This is the sql query to create the <b> member </b> and <b> news </b> tables. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/member+news.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/testpythonfile.jpg">
+    </div>
+    </div>
+
+    <br>
+
+<p> Below is a flowchart explaining the navigation to the <b> news </b> page. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/mainflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/newspagess.jpg">
+    </div>
+    </div>
+
+    <br>
+
+    <p> Below are flowcharts to be able to <b> add, update, and delete </b> news items. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/addflowchart.jpg">
+    </div>
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/updateflowchart.jpg">
+    </div>
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/deleteflowchart.jpg">
+    </div>
+    </div>
+
+    <br>
+
+    <p> Server.py <br> This is the code to <b>add, </b> <b> update, </b>and <b> delete </b> news items by authrorised users. </p>
+   <img class="img-fluid part-img" src="assets/images/add+updatenews.jpg">
+    <br>
+   <img class="img-fluid part-img" src="assets/images/deletenews.jpg">
+<br>
+
+    <h3>Testing the CUD functions</h3>
+        <video controls>
+            <source src="assets/vids/CUDtestrecording.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    <h3>Completion of Sprint #1</h3>
+    <br>
+    <img class="img-fluid part-img" style="border:5px solid #000" src="assets/images/sprint_1finish.jpg">
+    <br>
+
+    <h2>Reflection</h2>
+    <p>While I was trying to do this test, I developed it in stages which I thought would make sense. First I focused on making sure the add, update, and delete buttons work. Then I moved onto adding additional conditions to authorisation. Adding default data really helped because I had a starting point on what the data would look like. While doing this, I realised the need to create new users with the correct authorisation, this was something I decided to pick up in a later sprint. </p>
+
+    <hr>
+
+    <h3>Sprint #2</h3>
+    <h4> Aim: Create, update, and delete scheduled events. </h4>
+
+    <br>
+    <img class="img-fluid part-img" style="border:5px solid #000" src="assets/images/sprint_2start.jpg">
+    <br>
+
+    <p> In the second iteration, I have created a <b> schedule </b> table and done CUD operations on it. </p>
+
+    <p> Schedule table - will hold the information of all scheduled events created by the authorised members. <br> There is one to many relationships between member and schedule. Meaning a member is able to create multiple scheduled events.</p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/connectingmembersandschedule.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/scheduletablecloseup.jpg">
+    </div>
+    </div>
+<br>
+
+    <p> This is the sql query to create the schedule table. </p>
+    <img class="img-fluid part-img" src="assets/images/schedule_create.jpg">
+
+    <br>
+    <p> Below is a flowchart explaining the navigation to the <b>schedule</b> page. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/mainscheduleflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/schedulepagess.jpg">
+    </div>
+    </div>
+
+    <br>
+    <p> Below are flowcharts to be able to <b> add, update, and delete </b> scheduled events. </p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/addscheduleflowchart.jpg">
+    </div>
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/updatescheduleflowchart.jpg">
+    </div>
+    <div class="col-lg-4">
+        <img class="img-fluid part-img" src="assets/images/deleteschedule.jpg">
+    </div>
+    </div>
+
+    <br>
+    <p>Server.py <br> This is the code to add, update, and delete scheduled events by authorised users.</p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/schedulecode.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/schedulecode2.jpg">
+    </div>
+    </div>
+
+    <br>
+    <h3> Testing the CUD functions on the <b>schedule</b> page. </h3>
+        <video controls>
+            <source src="assets/vids/scheduletestrecording.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    <h3>Completion of Sprint #2</h3>
+    <img class="img-fluid part-img" style="border:5px solid #000" src="assets/images/sprint_2finish.jpg">
+    <br>
+
+    <h3>Reflection</h3>
+    <p>Building this was easier because I could build it based on the news functionality. I had issues with the date and time initially. I wanted the date and time to be set by the authorised user to when the event was actually occurring. Instead, a random date and time would show from when I posted the event and/ or a time I manually entered into the database initially as default data. The date/ time and notes would also get muddled around. Below is a video to illustrate the error. </p>
+
+        <video controls>
+            <source src="assets/vids/schedulepageerror.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    <p>I realised what my mistake was when I took a closer look at my code. Earlier, I hardcoded the date and time. Later, I changed it to the 'now' funtion. In the update, it was earlier in the 'now' funtion but I have changed it to take the value which has been updated.</p>
+
+    <hr>
+<h3> Sprint #3 </h3>
+    <h4> Aim: To be able to build the login and sign up functionality.</h4>
+    <p>When I started, there was no login functionality, and any user would be able to access Guitar Group website without restrictions. Log-in functionality was added later. The member table was leveraged to build the log-in and signup feature. </p>
+    <img class="img-fluid part-img" src="assets/images/sprint_3start.jpg">
+
+    <h4>Login</h4>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/loginflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/logincode.jpg">
+    </div>
+    </div>
+    <br>
+
+    <h4>Sign Up</h4>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/signupflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/signupcode.jpg">
+    </div>
+    </div>
+    <br>
+
+    <h4>Logout</h4>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/logoutflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/logoutcode.jpg">
+    </div>
+    </div>
+
+<br>
+    <h3>Testing the login and sign up pages</h3>
+    <br>
+    <video controls>
+        <source src="assets/vids/logintestrecording.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <br>
+    <h3>Completion of Sprint #3</h3>
+    <br>
+    <img class="img-fluid part-img" src="assets/images/sprint_3finish.jpg">
+    <br>
+
+    <h3>Reflection</h3>
+    <p>  While building the login page, I was debating whether to use the first/ last name or the email as the login ID. After some thought, and based on some research on applications such as Google, I realised that the email has to be unique as multiple people have the names first/ last names. Hence, I added the condition to validate if the email address is pre-existing in the database as a verification before signing up a new member.
+At the moment, the functionality validates the password, however, a thought for the future would be to add password rules to make the authentication more secure.
+</p>
+
+<hr>
+
+    <h3>Sprint #4</h3>
+    <h4> Aim: To be able to add comments to news items.</h4>
+    <br>
+
+    <img class="img-fluid part-img" src="assets/images/sprint_4start.jpg">
+    <br>
+    <p>Comments table has been created with two foreign keys: <br> commenter_id (FK) --> is mapped to member_id (PK) of the member table. <br> The member table has a one to many relation with the comment table, meaning that a single member can update multiple comments. <br>news_tag_id (FK) --> is mapped to news_id (PK) of the news table. <br> The news table has a one to many relation with the comment table, meaning that a single news item can have multiple comments. </p>
+   <br>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/connectingcomments.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/commentscloseup.jpg">
+    </div>
+    </div>
+    <br>
+     <p> This is the sql query to create the comments tables. </p>
+        <img class="img-fluid part-img" src="assets/images/createcomments.jpg">
+
+    <br>
+    <p>Below is a flowchart explaining the comments functionality</p>
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/commentsflowchart.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/commentsss.jpg">
+    </div>
+    </div>
+
+    <br>
+    <p>Server.py<br>This is the code to view and add comments by members.</p>
+
+    <div class="row align-items-center px-4 py-4">
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/commentssqlcode.jpg">
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid part-img" src="assets/images/insertcommentsintosql.jpg">
+    </div>
+    </div>
+
+    <br>
+    <h3>Testing of comments</h3>
+
+        <video controls>
+            <source src="assets/vids/commentstestrecording.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    <br>
+    <h3>Completion of Sprint #4</h3>
+    <br>
+    <img class="img-fluid part-img" src="assets/images/sprint_4finish.jpg">
+    <br>
+
+    <h3>Reflection</h3>
+    <p>The comments button was added to news.html. The code for it was written within news_cud function in server.py. The news_cud function already had to add, update, and delete functionality, which was working fine. I embedded comments functionality in this sprint. It took a few goes to get this working as I experienced syntax errors. For example, instead of elif, I wrote elseif. In the end, it worked.
+This functionality can be improved by adding features such as a cancel button, limiting the size of the comments, etc. This could be considered for future improvements.</p>
+
+ <hr>
+
+    <h2>Addressing Relevent Implications</h2>
+    <h5>Privacy</h5>
+    <p>I have made sure that there are role-based access controls to ensure that only those who need specific data have access to it. I have added authorisation for members. Authorisation 0 is for the superuser. They have access to add news, update, and delete news items. They also have access to add events on the schedule page, while being able to update and delete the events. Authorisation 1 is for general members. They are able to view all the content uploaded by the superuser and they are also able to comment on the news items if they wish. This way, privacy is respected as only those who need specific data have access to it. I have also made sure that the amount of information taken from members is kept to a minimum so their data is protected. I have only asked for first/ last name and email address. These things are needed for identification purposes, but no other information has been asked or retained. Passwords are hashed, so the data is kept hidden, therefore minimising data collection.</p>
+    <h5>Functionality</h5>
+    <p> The outcome meets a client’s expectations as I have tested this by asking fellow guitar group members to test my site. Through this testing, I have received feedback which has helped me refine functionality. Throughout my four sprints, I have done comprehensive testing of the functionality. Each sprint had a CUD test to ensure that the website performed as intended.  I have planned for each sprint by making diagrams and flow charts which allow me to visualise everything to avoid mistakes. These flowcharts show how the member navigates to certain pages. The layout of the site is quite simple and easy to navigate. I have created an sql installer file so that small changes and corrections are easy to implement. The website runs fast due to the optimization of the code.</p>
+    <h5>Sustainability</h5>
+    <p>I have built this database, ensuring that data is organised efficiently into separate tables. I have a members table which contains information about different members who have signed up and or logged in. I have scheduled events, news items, and comments. I have also used foreign keys to reference shared data like member_id. All corrections and updates are done in one place without the need to alter existing structures; and sustainability. If a member changes their name, the change automatically connects to related tables such as schedule and news. </p>
+    <h5>End User Consideration</h5>
+    <p>On my website, there is consistent styling, such as fonts, colours, and layout. This helps maintain a professional and user-friendly appearance. I have error messages throughout the website for things such as incorrect information filled out. If a new member tries to login to the website, the details will not be accepted. A message that says “UserID does not exist. Please sign up first,” shows up. There are a few of these error messages throughout the website. These clear error messages are there to guide members when they encounter issues such as wrong credentials or invalid entry details. This effective error handling allows a smoother experience for the user. Users expect fast response times; queries are optimised to ensure quick retrieval of data. </p>
+
+    <hr>
     <h3>Images (landscape fits better than portrait)</h3>
     <!-- one image -->
     <div class="row mb-2">
-        <div class="col-md-12 my-2">
-            <img class="img-fluid mx-auto d-block my-2" src="assets/images/place_holder.png"> </div>
+        <div class="col-md-12 my-"img-fluid mx-auto d-block my-2"2">
+            <img class= src="assets/images/place_holder.png"> </div>
         </div>
     <!-- two images -->
     <div class="row">
@@ -181,4 +507,4 @@ font-size: 100%;
 </pre>
 </div>
 
-<footer> Your name </footer>
+<footer> Adia Kaletla </footer>

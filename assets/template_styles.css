@@ -33,6 +33,7 @@ h1{
     font-size: 1.5em;
     color:var(--base-back);
 }
+
 .nav-link:hover{
     color:white;
 }
@@ -45,14 +46,15 @@ footer{
     color: white;
 }
 
-
 .row{
     background-color: var(--base-back);
 }
 
-
-
-
+.part-img{
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
 
 video{
     max-height: 300px;
